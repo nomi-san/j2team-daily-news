@@ -41,7 +41,7 @@
             <section class="modal-card-body" style="padding: 0 0 20px 0;" bind:this={elNews}>
                 <figure class="image">
                     <img src={item.image} alt="" />
-                    <span class="mask">J2TEAM News</span>
+                    <span class="mask"><img src="/favicon.png" alt="" />J2TEAM News</span>
                 </figure>
                 <div class="body">
                     <h3 class="title" contenteditable="true">{item.title}</h3>
@@ -67,11 +67,11 @@
 {/if}
 
 <style>
-    /* .modal {
+    .modal {
         -moz-user-select: none;
         -khtml-user-select: none;
         -webkit-user-select: none;
-    } */
+    }
 
     .input {
         margin-right: 8px;
@@ -109,14 +109,23 @@
     }
 
     .mask {
+        display: flex;
+        align-items: center;
         position: absolute;
         right: 20px;
-        bottom: 10px;
+        bottom: 0;
         font-size: 34px;
         font-weight: bold;
         color: #fff;
-        opacity: 0.5;
+        opacity: 0.4;
         text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+
+    .mask img {
+        margin-right: 10px;
+        width: 60px;
+        display: flex;
+        filter: brightness(0) invert(1) drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
     }
 
     .body {
