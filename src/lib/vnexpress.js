@@ -69,7 +69,6 @@ export const RSS_ENTRIES = [
         name: 'Giáo dục',
         path: 'giao-duc'
     },
-
     {
         name: 'Sức khỏe',
         path: 'suc-khoe'
@@ -98,10 +97,10 @@ export const RSS_ENTRIES = [
         name: 'Ý kiến',
         path: 'y-kien'
     },
-    // {
-    //     name: 'Tâm sự',
-    //     path: 'tam-su'
-    // },
+    {
+        name: 'Tâm sự',
+        path: 'tam-su'
+    },
     {
         name: 'Cười',
         path: 'cuoi'
@@ -116,6 +115,7 @@ import { XMLParser } from 'fast-xml-parser'
  * @returns {Item[]}
  */
 export const parseRssXml = (xml) => {
+    let a
     try {
         // Parse XML.
         const parser = new XMLParser()
@@ -141,19 +141,31 @@ export const parseRssXml = (xml) => {
                     .replace(/^.*[\\\/]/, '')   // Get the last part.
                     .replace('.html', '')       // Remove '.html'.
 
+                let desc = description
+                let image = 'https://s1cdn.vnecdn.net/vnexpress/restruct/i/v525/logo_default.jpg'
+
+                if (description.includes('href=')) {
+                    try {
+                        desc = description.match(/\<\/a\>\<\/br\>(.*)$/)[1]
+                        image = description.match(/\<img\ssrc\=\"(.*)\"/)[1]
+                    } catch {
+                    }
+                }
+
                 /** @returns {Item} */
                 return {
                     title,
                     link,
                     id,
-                    description: description.match(/\<\/a\>\<\/br\>(.*)$/)[1],
-                    image: description.match(/\<img\ssrc\=\"(.*)\"/)[1],
+                    image,
+                    description: desc,
                     date: date.toLocaleString('vi') // Convert to local date.
                 }
             })
             .filter(i => i !== null)
     }
     catch {
+        console.log(a)
         return null
     }
 }
