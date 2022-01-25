@@ -44,8 +44,8 @@
                     <span class="mask">J2TEAM News</span>
                 </figure>
                 <div class="body">
-                    <h3 class="title">{item.title}</h3>
-                    <p class="description">{item.description}</p>
+                    <h3 class="title" contenteditable="true">{item.title}</h3>
+                    <p class="description" contenteditable="true">{item.description}</p>
                     <p class="source">vnexpress.net // {name}</p>
                 </div>
             </section>
@@ -67,11 +67,11 @@
 {/if}
 
 <style>
-    .modal {
+    /* .modal {
         -moz-user-select: none;
         -khtml-user-select: none;
         -webkit-user-select: none;
-    }
+    } */
 
     .input {
         margin-right: 8px;
