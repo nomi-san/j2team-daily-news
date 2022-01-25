@@ -32,7 +32,9 @@
 </main>
 
 <footer>
-    Daily news via <a href="vnexpress.vn" target="_blank">VnExpress.vn</a>
+    Daily news via <a href="https://vnexpress.net" target="_blank">VnExpress</a>
+    <br />
+    &copy; {new Date().getFullYear()} Nomi · <a href="https://github.com/nomi-san/j2team-daily-news">Source code</a>
 </footer>
 
 <style>
