@@ -115,7 +115,6 @@ import { XMLParser } from 'fast-xml-parser'
  * @returns {Item[]}
  */
 export const parseRssXml = (xml) => {
-    let a
     try {
         // Parse XML.
         const parser = new XMLParser()
@@ -165,7 +164,6 @@ export const parseRssXml = (xml) => {
             .filter(i => i !== null)
     }
     catch {
-        console.log(a)
         return null
     }
 }
