@@ -158,7 +158,7 @@ export const parseRssXml = (xml) => {
                     id,
                     image,
                     description: desc,
-                    date: date.toLocaleString('vi') // Convert to local date.
+                    date: date.toLocaleString('vi', { timeZone: 'Asia/Bangkok' }) // Convert to local date.
                 }
             })
             .filter(i => i !== null)
