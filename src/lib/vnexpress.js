@@ -126,14 +126,14 @@ export const parseRssXml = (xml) => {
         if (!('item' in rss.channel)) return null
         if (!Array.isArray(rss.channel.item)) return null
 
-        const { pubDate, item } = rss.channel
-        const day = new Date(pubDate).getUTCDate()
+        const { /*pubDate,*/ item } = rss.channel
+        //const day = new Date(pubDate).getUTCDate()
 
         return item
             .map(({ title, description, pubDate, link }) => {
                 const date = new Date(pubDate)
                 // Current day only.
-                if (date.getUTCDate() !== day) return null
+                //if (date.getUTCDate() !== day) return null
 
                 // Unique ID from link.
                 const id = link
